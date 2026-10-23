@@ -39,48 +39,48 @@ a{color:var(--blue)}
 .nav a:hover{color:#f0c95c}
 
 /* ===== 首页 Hero ===== */
-.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1e47 0%,#1643a8 52%,#1d5fd0 100%);color:#fff;padding:54px 0 50px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1e47 0%,#1643a8 52%,#1d5fd0 100%);color:#fff;padding:26px 0 20px}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(460px 220px at 82% -15%,rgba(255,255,255,.16),transparent),
   radial-gradient(300px 160px at 8% 110%,rgba(240,201,92,.14),transparent)}
 .hero::after{content:"⚖";position:absolute;right:5%;bottom:-16px;font-size:150px;opacity:.06;transform:rotate(-12deg)}
 .hero .wrap{position:relative;z-index:1}
-.hero .badge{display:inline-block;background:linear-gradient(135deg,#c9a227,#e3ba4e);color:#3a2c05;border-radius:22px;padding:4px 15px;font-size:12.5px;font-weight:700;letter-spacing:.5px;margin-bottom:15px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
-.hero h1{font-size:31px;line-height:1.35;font-weight:800;letter-spacing:.3px}
-.hero p{font-size:16px;opacity:.94;margin-top:12px;max-width:660px}
+.hero .badge{display:inline-block;background:linear-gradient(135deg,#c9a227,#e3ba4e);color:#3a2c05;border-radius:22px;padding:3px 12px;font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:8px;box-shadow:0 5px 12px rgba(0,0,0,.18)}
+.hero h1{font-size:22px;line-height:1.35;font-weight:800;letter-spacing:.3px}
+.hero p{font-size:13.5px;opacity:.94;margin-top:8px;max-width:660px}
 
 /* ===== 区块标题 ===== */
-.section-title{display:flex;align-items:center;gap:11px;font-size:20px;color:var(--navy);margin:38px 0 16px;font-weight:800}
+.section-title{display:flex;align-items:center;gap:8px;font-size:16px;color:var(--navy);margin:24px 0 11px;font-weight:800}
 .section-title::before{content:"";width:6px;height:24px;border-radius:4px;background:linear-gradient(180deg,#c9a227,#1d4ed8);flex:none}
 
 /* ===== 分类卡片 ===== */
-.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(226px,1fr));gap:15px}
-.cat{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 17px 17px;text-decoration:none;color:var(--ink);display:block;transition:.22s;overflow:hidden;box-shadow:var(--shadow-sm)}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:9px}
+.cat{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:10px 8px;text-decoration:none;color:var(--ink);display:block;transition:.22s;overflow:hidden;box-shadow:var(--shadow-sm)}
 .cat::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#c9a227,#1d4ed8);transition:.28s}
 .cat:hover{transform:translateY(-4px);border-color:transparent;box-shadow:var(--shadow)}
 .cat:hover::after{transform:scaleX(1)}
-.cat em{font-style:normal;font-size:27px;display:block}
-.cat b{display:block;font-size:15px;color:var(--navy);font-weight:700;margin:7px 0 3px}
-.cat span{font-size:12.5px;color:var(--sub)}
+.cat em{font-style:normal;font-size:21px;display:block}
+.cat b{display:block;font-size:12.5px;color:var(--navy);font-weight:700;margin:4px 0 2px}
+.cat span{font-size:11px;color:var(--sub)}
 
 /* ===== 文章卡片 ===== */
-.posts{display:grid;gap:15px}
-.post{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:19px 21px 17px;text-decoration:none;color:var(--ink);display:block;transition:.22s;box-shadow:var(--shadow-sm);overflow:hidden}
+.posts{display:grid;gap:10px}
+.post{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;text-decoration:none;color:var(--ink);display:block;transition:.22s;box-shadow:var(--shadow-sm);overflow:hidden}
 .post::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(#c9a227,#1d4ed8);opacity:0;transition:.25s}
 .post:hover{transform:translateY(-3px);border-color:#bcd0f7;box-shadow:var(--shadow)}
 .post:hover::before{opacity:1}
 .post .c{font-size:12px;color:#8a6200;background:linear-gradient(135deg,#fdeab5,#f8dc87);border-radius:6px;padding:2px 9px;font-weight:700}
-.post h3{font-size:17px;margin:9px 0 6px;color:var(--ink);line-height:1.5}
+.post h3{font-size:15px;margin:6px 0 3px;color:var(--ink);line-height:1.45}
 .post:hover h3{color:var(--blue)}
-.post p{font-size:14px;color:var(--sub)}
+.post p{font-size:12.5px;color:var(--sub);display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
 /* ===== 关于 / 正文容器 ===== */
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;margin:18px auto 22px;box-shadow:var(--shadow-sm)}
 .card h1{font-size:25px;line-height:1.4;color:var(--navy);letter-spacing:.2px}
 .card h2{font-size:20px;color:var(--navy);margin:28px 0 12px;line-height:1.4}
 .card h3{font-size:16px;margin:18px 0 8px;color:var(--ink)}
-.about{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:36px;box-shadow:var(--shadow-sm)}
-.about h2{color:var(--navy);font-size:18px;margin-bottom:10px}
+.about{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;margin-top:18px;box-shadow:var(--shadow-sm)}
+.about h2{color:var(--navy);font-size:15px;margin-bottom:6px}
 .about li{margin:7px 0;color:#2a3350}
 p{margin:10px 0}
 ol,ul{margin:8px 0 8px 22px}li{margin:7px 0}
@@ -125,6 +125,21 @@ tbody tr:nth-child(even) td{background:#f8fafd}
 .cta .hint{font-size:12.5px;opacity:.88}
 .cta div{position:relative}
 
+/* ===== 紧凑版：定位折叠 / 吸底咨询栏 ===== */
+.intro{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:16px 0 0;box-shadow:var(--shadow-sm)}
+.intro h2{font-size:16px;color:var(--navy);margin:0 0 7px}
+.intro p{font-size:13px;color:var(--ink);margin:6px 0}
+.intro details{margin:6px 0 4px}
+.intro summary,.about summary{cursor:pointer;font-size:12.5px;color:var(--blue);font-weight:600;padding:6px 0}
+.intro details ul{margin:6px 0 0 16px}
+.intro details li{font-size:12.5px;margin:5px 0;color:#2a3350}
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,25,60,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 -4px 18px rgba(0,0,0,.22)}
+.fixbar a{flex:1;text-align:center;padding:12px 4px;border-radius:11px;font-size:15px;font-weight:700;text-decoration:none;line-height:1.15}
+.fixbar .fb-call{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.fixbar .fb-msg{background:linear-gradient(135deg,#f0ca54,#ffe09c);color:#3a2c05}
+.foot-line{text-align:center;font-size:12.5px;color:#7a8ab0;padding:12px 16px 0}
+body{padding-bottom:70px}
+
 /* ===== 下载/工具 ===== */
 .dl-list{display:grid;gap:15px}
 .dl,.tool{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px;box-shadow:var(--shadow-sm);transition:.2s}
@@ -144,12 +159,11 @@ tbody tr:nth-child(even) td{background:#f8fafd}
 /* ===== 响应式 ===== */
 @media(max-width:600px){
   .wrap,.container{padding:0 15px}
-  .hero{padding:42px 0}
-  .hero h1{font-size:24px}
-  .card{padding:22px 17px}
-  .card h1{font-size:21px}
-  .cta{padding:26px 18px}.cta .phone{font-size:23px}
-  .cats{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:11px}
+  .hero{padding:20px 0}
+  .hero h1{font-size:21px}
+  .cat{padding:9px 6px}
+  .cat span{display:none}
+  .cat b{font-size:12px;margin:3px 0 0}
   .nav a{margin-left:12px;font-size:13px}
 }
 </style>
@@ -161,26 +175,29 @@ tbody tr:nth-child(even) td{background:#f8fafd}
   <div class="wrap">
     <span class="badge">律师原创 · 专注把法律讲成人话</span>
     <h1>遇到法律问题，先来这里把思路理清楚</h1>
-    <p>工伤、被辞退、交通事故、离婚、借钱不还…… 每一个常见麻烦，我们用大白话 + 真实案例，告诉你"法律怎么说、你该怎么一步步做"。</p>
+    <p>工伤、辞退、交通事故、离婚、借钱不还……法律怎么说、你该怎么做，用大白话+真实案例讲给你。</p>
   </div>
 </div>
 
 <div class="wrap">
 
-  <section class="card" style="margin-top:22px">
-    <h2 style="color:var(--navy);font-size:19px;margin:0 0 12px">🤔 这是个什么样的网站？</h2>
-    <p><b>合肥工伤维权</b> 是一个由 <b>安徽合肥执业律师</b> 原创主理的法律科普网站。这里不堆法条、不卖课，只做一件事：把普通人遇到的法律麻烦，用大白话讲清楚“法律怎么说、你该怎么一步步做”，并配合真实案例把每一步写明白。</p>
-    <p style="margin-top:10px">网站目前覆盖 <b>7 大领域</b>、发布近 20 篇原创科普文章：</p>
-    <ul style="margin-top:4px">
-      <li><b>工伤维权</b>：工伤认定申请流程、伤残鉴定怎么评、赔偿金额怎么算，以及公司不认账、包工头跑路怎么办；</li>
-      <li><b>劳动争议</b>：被辞退能拿多少赔偿（N、N+1、2N）、公司拖欠工资怎么办、劳动仲裁全流程；</li>
-      <li><b>交通事故</b>：十级伤残在安徽能赔多少、误工费护理费残疾赔偿金怎么算；</li>
-      <li><b>婚姻家事</b>：离婚怎么离才不亏、财产怎么分、抚养权归属、家暴与人身安全保护令；</li>
-      <li><b>房产纠纷</b>：房产遗产怎么分、法定继承顺序与过户；</li>
-      <li><b>借贷与合同</b>：借条怎么写才有法律效力、借钱不还怎么起诉、合同纠纷如何打官司；</li>
-      <li><b>刑事风险</b>：被刑事立案或拘留怎么办、帮信罪的风险与自保。</li>
-    </ul>
-    <p style="margin-top:10px">全部内容以 <b>安徽省 / 合肥市</b> 本地办理口径为准，并配套提供常用的 <b>法律文书模板免费下载</b>。文中分析与具体操作路径仅供参考，个案请携带证据咨询律师。</p>
+  <section class="intro">
+    <h2>🤔 这是个什么样的网站？</h2>
+    <p>由<b>安徽合肥执业律师</b>原创的法律科普站，覆盖<b>7大法律领域</b>，可下载<b>法律文书模板</b>、<b>在线咨询</b>。</p>
+    <details>
+      <summary>每类问题都能查到什么（点开看详情）</summary>
+      <ul>
+        <li><b>工伤维权</b>：工伤认定申请流程、伤残鉴定怎么评、赔偿金额怎么算，以及公司不认账、包工头跑路怎么办；</li>
+        <li><b>劳动争议</b>：被辞退能拿多少赔偿（N、N+1、2N）、公司拖欠工资怎么办、劳动仲裁全流程；</li>
+        <li><b>交通事故</b>：十级伤残在安徽能赔多少、误工费护理费残疾赔偿金怎么算；</li>
+        <li><b>婚姻家事</b>：离婚怎么离才不亏、财产怎么分、抚养权归属、家暴与人身安全保护令；</li>
+        <li><b>房产纠纷</b>：房产遗产怎么分、法定继承顺序与过户；</li>
+        <li><b>借贷与合同</b>：借条怎么写才有法律效力、借钱不还怎么起诉、合同纠纷如何打官司；</li>
+        <li><b>刑事风险</b>：被刑事立案或拘留怎么办、帮信罪的风险与自保。</li>
+        <li><b>文书下载</b>：借条、民事起诉状、劳动仲裁申请书、授权委托书等模板免费下载。</li>
+      </ul>
+    </details>
+    <p>内容以<b>安徽/合肥</b>本地口径为准；个案请携带证据咨询律师。</p>
   </section>
 
   <h2 class="section-title">📂 按问题找答案</h2>
@@ -296,25 +313,26 @@ tbody tr:nth-child(even) td{background:#f8fafd}
   </div>
 
   <div class="about">
-    <h2>👨‍⚖️ 关于本站</h2>
-    <ul>
-      <li><b>作者：</b>律师（安徽合肥执业），做法律咨询与诉讼代理；</li>
-      <li><b>定位：</b>只讲"人话"，把法条翻译成你听得懂、用得上的步骤；</li>
-      <li><b>承诺：</b>不写"包打赢"、不诱导、不夸大，只给客观的法律分析和可执行的路径。</li>
-    </ul>
+    <details>
+      <summary>👨‍⚖️ 关于本站（作者 · 承诺）</summary>
+      <ul>
+        <li><b>作者：</b>律师（安徽合肥执业），做法律咨询与诉讼代理；</li>
+        <li><b>定位：</b>只讲"人话"，把法条翻译成你听得懂、用得上的步骤；</li>
+        <li><b>承诺：</b>不写"包打赢"、不诱导、不夸大，只给客观的法律分析和可执行的路径。</li>
+      </ul>
+    </details>
   </div>
 
-  <div class="cta">
-    <h2>不想自己猜？直接问</h2>
-    <p>把你的情况说清楚，帮你判断方向、理清思路</p>
-    <div class="phone">📞 152-0986-1944</div>
-    <div class="hint">（工作日咨询 · 律师本人 · 收费咨询请先说明）</div>
-<div style="margin-top:16px"><a href="zaixian.html" style="display:inline-block;padding:11px 22px;border-radius:12px;background:linear-gradient(135deg,#f3cf6b,#ffe2a0);color:#3a2c05;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 6px 18px rgba(0,0,0,.18)">📝 在线留言咨询（留电话·律师回拨）</a></div>
-  </div>
+  <div class="foot-line">工作日咨询 · 律师本人 152-0986-1944（收费咨询请先说明）</div>
 
 </div>
 
 <div class="footer">© 合肥工伤维权｜本网站内容为一般性普法，不构成对具体个案的法律意见；个案请携带证据咨询专业律师</div>
+
+<div class="fixbar">
+  <a class="fb-call" href="tel:15209861944">📞 电话咨询</a>
+  <a class="fb-msg" href="zaixian.html">📝 在线留言咨询</a>
+</div>
 
 </body>
 </html>
