@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOUR-SITE/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://YOUR-SITE/articles/gs_money.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://YOUR-SITE/articles/gs_taolu.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/downloads.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs_money.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs_taolu.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs-rending-liucheng.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs_no-ren.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs-baogongtou.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/gs-meihetong.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/jt-shigu-peichang.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://gy00007.github.io/gs-wq/articles/jieqian-buhuan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
