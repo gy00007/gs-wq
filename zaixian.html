@@ -43,6 +43,7 @@ textarea{min-height:130px;resize:vertical}
 #toast.err{background:#dc2626}
 @media(max-width:600px){.card{padding:22px 18px}.hero h1{font-size:22px}}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","name":"在线留言咨询","url":"https://gy00007.github.io/gs-wq/zaixian.html","description":"在线留言咨询安徽合肥执业律师：留下姓名、电话和咨询内容，律师本人会尽快回复，信息严格保密。","mainEntity":{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"留言咨询要钱吗？","acceptedAnswer":{"@type":"Answer","text":"本站在线留言是免费初筛，可以先向律师说明情况判断是否值得处理；具体委托事项是否收费、多少，会清楚告知后再做。"}},{"@type":"Question","name":"留言多久能回复？","acceptedAnswer":{"@type":"Answer","text":"工作日一般当天或次日回复。如案情紧急，可先电话联系 152-0986-1944。"}},{"@type":"Question","name":"留言信息保密吗？","acceptedAnswer":{"@type":"Answer","text":"保密。咨询内容仅作办案判断使用，不会对外公开。"}}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://gy00007.github.io/gs-wq/"},{"@type":"ListItem","position":2,"name":"在线留言","item":"https://gy00007.github.io/gs-wq/zaixian.html"}]}]}</script>
 </head>
 <body>
 <div class="hdr"><div class="wrap">
@@ -88,25 +89,25 @@ var client = aipexbase.createClient({ baseUrl: "https://baas.kuafuai.net/baas-ap
 function toast(msg, err){
   var t=document.getElementById('toast');
   t.textContent=msg; t.className=err?'err':''; t.style.display='block';
-  setTimeout(function{ t.style.display='none'; }, 3200);
+  setTimeout(function(){ t.style.display='none'; }, 3200);
 }
 
 document.getElementById('zxForm').addEventListener('submit', async function(e){
   e.preventDefault;
-  var name=document.getElementById('name').value.trim;
-  var phone=document.getElementById('phone').value.trim;
-  var content=document.getElementById('content').value.trim;
+  var name=document.getElementById('name').value.trim();
+  var phone=document.getElementById('phone').value.trim();
+  var content=document.getElementById('content').value.trim();
   if(!name||!phone||!content){ toast('请填写完整的称呼、电话和咨询内容', true); return; }
   if(!/1\d{10}/.test(phone)){ toast('请填写正确的手机号', true); return; }
   var btn=document.getElementById('submitBtn');
   btn.disabled=true; btn.textContent='提交中…';
   try{
     var now=new Date;
-    var time=now.getFullYear+'-'+('0'+(now.getMonth+1)).slice(-2)+'-'+('0'+now.getDate).slice(-2)+' '
-            +('0'+now.getHours).slice(-2)+':'+('0'+now.getMinutes).slice(-2);
-    await client.db.from('zuixun').insert.values({ name:name, phone:phone, content:content, time:time, is_read:'0' });
+    var time=now.getFullYear()+'-'+('0'+(now.getMonth()+1)).slice(-2)+'-'+('0'+now.getDate()).slice(-2)+' '
+            +('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
+    await client.db.from('zuixun').insert().values({ name:name, phone:phone, content:content, time:time, is_read:'0' });
     toast('✓ 提交成功！律师会尽快联系您');
-    e.target.reset;
+    e.target.reset();
   }catch(err){
     toast('提交失败，请稍后再试或直接拨打 152-0986-1944', true);
     console.error(err);
