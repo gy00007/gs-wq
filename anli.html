@@ -58,6 +58,8 @@ a{color:var(--blue)}
 .ckey{font-size:12px;color:var(--blue);text-decoration:none;font-weight:600}
 .ckey:hover{text-decoration:underline}
 .cfull-btn{display:block;width:100%;margin-top:9px;padding:8px;border:1px dashed #4f7cff;border-radius:9px;background:var(--soft);color:var(--blue);font-size:12.5px;font-weight:700;cursor:pointer;text-align:center;transition:.2s;-webkit-appearance:none;appearance:none}
+.ckey-full{display:block;width:100%;margin-top:9px;padding:9px;border:none;border-radius:9px;background:linear-gradient(135deg,#0d2452,#1d4ed8);color:#fff;font-size:13px;font-weight:700;text-align:center;text-decoration:none;transition:.2s}
+.ckey-full:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
 .cfull-btn:hover{background:rgba(79,124,255,.13)}
 .cfull{margin-top:9px;padding:11px 13px;background:#fbfcff;border:1px solid var(--line);border-radius:10px;font-size:12.8px;color:var(--ink);line-height:1.85;display:none}
 .cfull h4{color:var(--navy);font-size:12.5px;margin:9px 0 3px;font-weight:800}
@@ -132,7 +134,7 @@ var CASES=[
  gist:"“以租赁之身、借金融之名、行贷款之实”作负面评价。认定名为借贷后，<b>利息、违约金、或有租金合计限制在年利率24%以内（2020.8.20后按一年期LPR四倍）</b>，已收手续费在应付款中扣除。",
  art:"articles/lilv-yuexian.html",artn:"利率调减科普",
  full:"<h4>案由</h4><p>融资租赁合同纠纷（<b>名为融资租赁、实为借贷</b>）。</p><h4>争议焦点</h4><p>合同被认定为借款后，高额的利息、违约金、服务费等合计是否超出法定利率上限？已收费用如何处理？</p><h4>裁判要点</h4><p>对「以租赁之身、借金融之名、行贷款之实」作负面评价；认定名为借贷后，<b class='hl'>利息、违约金、或有租金等合计受利率上限约束</b>——2020年8月20日后按一年期LPR四倍，此前按年利率24%以内；<b class='hl'>已收手续费、服务费等应在应付款中扣除</b>。</p><h4>法律依据</h4><p>《民法典》第680条（禁止高利放贷）；最高人民法院《关于审理民间借贷案件适用法律问题的规定》第25条（利率上限）。</p><h4>给你一点提示</h4><p>若被「融资租赁」合同以高额租金、服务费、违约金垒高成本，可主张按<b>实际借款本金＋LPR四倍</b>计算，超过部分不还，且已扣费用应冲抵。</p>"},
-{id:"（2021）沪74民终87号",t:"租赁物根本不存在，还是“融资租赁”吗？",type:"融资租赁·名租实贷",reg:"上海",court:"上海金融法院",yr:2021,kw:"融资租赁 租赁物 民间借贷 名租实贷",
+{id:"（2021）沪74民终87号",t:"租赁物根本不存在，还是“融资租赁”吗？",type:"融资租赁·名租实贷",reg:"上海",court:"上海金融法院",yr:2021,kw:"融资租赁 租赁物 民间借贷 名租实贷",fullurl:"anli_pages/2021-hu74-87.html",
  gist:"出租人未能证明租赁物真实存在、缺乏融物属性的，<b>按民间借贷认定</b>；同时也提示，若承租人自认部分租赁物真实、合同并非全然无融物属性，不宜简单否定融资租赁性质。",
  art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普",
  full:"<h4>案由</h4><p>融资租赁合同纠纷（人民法院案例库入库案例）。</p><h4>争议焦点</h4><p>租赁物根本不存在、或只是「账面走个形式」，合同究竟是<b>融资租赁</b>还是<b>借款</b>？</p><h4>裁判要点</h4><p>出租人<b class='hl'>未能证明租赁物真实存在、缺乏「融物」属性</b>的，按民间借贷认定；反之，若承租人自认部分租赁物真实、合同并非全然无融物属性，则不宜简单以举证不能否定融资租赁性质。</p><h4>法律依据</h4><p>《民法典》第735、737条；最高人民法院《关于审理融资租赁合同纠纷案件适用法律问题的解释》第1条。</p><h4>给你一点提示</h4><p>「售后回租」若没有<b>真实租赁物</b>（设备不存在／重复融资／低值高估），法律上可能被认定为借款——这直接决定你要不要按「本金＋LPR四倍」还钱，以及担保是否有效。</p>"},
@@ -180,9 +182,10 @@ function render(){
       '<div class="cmeta"><span class="ctag">'+c.type+'</span><span class="creg">'+c.reg+'</span><span class="cyr">'+c.yr+' 年</span><span class="cid">'+c.id+'</span></div>'+
       '<div class="ctitle">'+c.t+'</div>'+
       '<div class="cgist">'+c.gist+'</div>'+
-      '<div class="cfoot"><span class="court">法院：<b>'+c.court+'</b></span><a class="ckey" href="'+c.art+'">看『'+c.artn+'』→</a></div>'+
-      '<button class="cfull-btn" onclick="toggleFull(this)">📖 展开判例全文 ▾</button>'+
-      '<div class="cfull" style="display:none">'+c.full+'</div>'+
+      '<div class="cfoot"><span class="court">法院：<b>'+c.court+'</b></span><a class="ckey" href="'+c.art+'">看『'+c.artn+'』→</a></div>'+'\n'+
+      (c.fullurl?'<a class="ckey-full" href="'+c.fullurl+'">📄 查看判决书全文 →</a>':'')+'\n'+
+      '<button class="cfull-btn" onclick="toggleFull(this)">📖 展开判例全文 ▾</button>'+'\n'+
+      '<div class="cfull" style="display:none">'+c.full+'</div>'+'\n'+
       '</div>';
   }).join('');
 }
