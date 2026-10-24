@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>在线咨询留言 | 合肥工伤维权</title>
-<meta name="description" content="在线法律咨询留言：留下您的姓名、电话和咨询内容，律师本人会尽快回复。">
+<title>在线留言 | 合肥工伤维权</title>
+<meta name="description" content="在线留言咨询：留下您的姓名、电话和咨询内容，律师本人会尽快回复。">
 <link rel="canonical" href="https://gy00007.github.io/gs-wq/zaixian.html">
 <style>
 :root{--navy:#0d2452;--blue:#1d4ed8;--blue2:#3b82f6;--gold:#c9a227;--gold2:#dfb549;
@@ -46,13 +46,13 @@ textarea{min-height:130px;resize:vertical}
 </head>
 <body>
 <div class="hdr"><div class="wrap">
-  <a class="logo" href="index.html">合肥工伤维权<em>·在线咨询</em></a>
+  <a class="logo" href="index.html">合肥工伤维权<em>·在线留言</em></a>
   <div class="nav"><a href="index.html">首页</a><a href="downloads.html">文书下载</a></div>
 </div></div>
 
 <div class="hero"><div class="wrap">
   <div class="badge">律师本人 · 一般普法咨询</div>
-  <h1>在线法律咨询留言</h1>
+  <h1>在线留言咨询</h1>
   <p>工伤、劳动仲裁、交通事故、婚姻家庭、合同纠纷……留下您的咨询内容和联系方式，<b>律师本人会尽快联系您</b>。信息仅您与律师可见，请放心填写。</p>
 </div></div>
 
@@ -73,7 +73,7 @@ textarea{min-height:130px;resize:vertical}
   <div class="cta">
     <div>更想直接说？给律师打个电话</div>
     <div class="phone">📞 152-0986-1944</div>
-    <div class="sub">工作日咨询 · 律师本人 · 收费咨询请先说明</div>
+    <div class="sub">工作日咨询 · 律师本人</div>
   </div>
 </div>
 
@@ -88,25 +88,25 @@ var client = aipexbase.createClient({ baseUrl: "https://baas.kuafuai.net/baas-ap
 function toast(msg, err){
   var t=document.getElementById('toast');
   t.textContent=msg; t.className=err?'err':''; t.style.display='block';
-  setTimeout(function(){ t.style.display='none'; }, 3200);
+  setTimeout(function{ t.style.display='none'; }, 3200);
 }
 
 document.getElementById('zxForm').addEventListener('submit', async function(e){
-  e.preventDefault();
-  var name=document.getElementById('name').value.trim();
-  var phone=document.getElementById('phone').value.trim();
-  var content=document.getElementById('content').value.trim();
+  e.preventDefault;
+  var name=document.getElementById('name').value.trim;
+  var phone=document.getElementById('phone').value.trim;
+  var content=document.getElementById('content').value.trim;
   if(!name||!phone||!content){ toast('请填写完整的称呼、电话和咨询内容', true); return; }
   if(!/1\d{10}/.test(phone)){ toast('请填写正确的手机号', true); return; }
   var btn=document.getElementById('submitBtn');
   btn.disabled=true; btn.textContent='提交中…';
   try{
-    var now=new Date();
-    var time=now.getFullYear()+'-'+('0'+(now.getMonth()+1)).slice(-2)+'-'+('0'+now.getDate()).slice(-2)+' '
-            +('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
-    await client.db.from('zuixun').insert().values({ name:name, phone:phone, content:content, time:time, is_read:'0' });
+    var now=new Date;
+    var time=now.getFullYear+'-'+('0'+(now.getMonth+1)).slice(-2)+'-'+('0'+now.getDate).slice(-2)+' '
+            +('0'+now.getHours).slice(-2)+':'+('0'+now.getMinutes).slice(-2);
+    await client.db.from('zuixun').insert.values({ name:name, phone:phone, content:content, time:time, is_read:'0' });
     toast('✓ 提交成功！律师会尽快联系您');
-    e.target.reset();
+    e.target.reset;
   }catch(err){
     toast('提交失败，请稍后再试或直接拨打 152-0986-1944', true);
     console.error(err);
