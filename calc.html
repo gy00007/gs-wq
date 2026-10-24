@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赔偿计算器｜工伤赔偿、交通事故赔偿在线算（安徽标准）</title>
+<meta name="description" content="安徽合肥执业律师制作的免费赔偿计算器：工伤赔偿、交通事故赔偿在线自动计算，按安徽当地标准（社平工资、人均可支配收入、住院伙食补助等），输入数据即可算出大概能拿多少赔偿。">
+<meta name="keywords" content="工伤赔偿计算器,交通事故赔偿计算器,安徽赔偿标准,合肥工伤赔偿,交通事故赔偿明细">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1d4ed8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f3f5f9;color:#1f2937;line-height:1.6;padding:0 0 90px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+.top{background:linear-gradient(135deg,#1d4ed8,#0f3a8a);color:#fff;padding:22px 14px 18px;text-align:center}
+.top h1{font-size:22px;margin-bottom:6px}
+.top p{font-size:13px;opacity:.92}
+.tabs{display:flex;gap:8px;margin:14px 0;background:#fff;border-radius:12px;padding:6px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:700;border-radius:10px;cursor:pointer;color:#6b7280;transition:.2s;border:none;background:transparent}
+.tab.on{background:linear-gradient(135deg,#1d4ed8,#c9a227);color:#fff}
+.card{background:#fff;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.card h2{font-size:16px;margin-bottom:12px;color:#0f3a8a}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:4px;color:#374151}
+.field .tip{font-size:12px;color:#9ca3af;font-weight:400}
+.field input,.field select{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;font-size:15px;background:#fff}
+.field input:focus,.field select:focus{outline:none;border-color:#1d4ed8}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-top:4px;cursor:pointer}
+.check input{width:18px;height:18px}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:16px;font-weight:800;color:#fff;cursor:pointer;margin-top:4px}
+.btn:hover{filter:brightness(1.05)}
+.btn-gs{background:linear-gradient(135deg,#1d4ed8,#163a8a)}
+.btn-jt{background:linear-gradient(135deg,#c24137,#8a1618)}
+.out{margin-top:14px}
+.rr{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #e5e7eb;font-size:14px}
+.rr .k{color:#6b7280}
+.rr .v{font-weight:700;color:#0f3a8a}
+.rr.total{border-top:2px solid #d1d5db;border-bottom:none;margin-top:6px;padding-top:12px}
+.rr.total .v{font-size:19px;color:#16a34a}
+.note{font-size:12px;color:#9ca3af;margin-top:12px;line-height:1.7}
+.notebar{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 14px;font-size:13px;color:#9a3412;line-height:1.7;margin-bottom:12px}
+.notebar b{color:#c24137}
+.cta{max-width:680px;margin:16px auto 0;padding:0 14px}
+.cta-box{background:linear-gradient(135deg,#1d4ed8,#0f3a8a);color:#fff;border-radius:14px;padding:16px;text-align:center}
+.cta-box .a{font-size:15px;font-weight:800;margin-bottom:8px}
+.cta-box .b{font-size:13px;opacity:.92}
+.foot{text-align:center;font-size:12px;color:#9ca3af;padding:20px 14px}
+.hidden{display:none}
+@media(max-width:400px){.top h1{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>🧮 赔偿计算器</h1>
+  <p>安徽当地标准 · 输入数据自动算 · 大白话讲清大概能拿多少</p>
+</div>
+
+<div class="wrap">
+  <div class="notebar">📌 这是按<b>安徽当地标准</b>做的<b>粗略估算</b>，帮你心里有个数。工伤/交通赔偿项目多、每个案子情况不同，这里的数<b>不等于最终判决</b>。真有事，还是带证据 <b>咨询律师（电话 152-0986-1944）</b> 更准。</div>
+
+  <div class="tabs">
+    <button class="tab on" id="tabGs" onclick="switchCalc('gs')">🛠️ 工伤赔偿</button>
+    <button class="tab" id="tabJt" onclick="switchCalc('jt')">🚗 交通事故赔偿</button>
+  </div>
+
+  <!-- ============ 工伤计算器 ============ -->
+  <div id="paneGs">
+    <div class="card">
+      <h2>🛠️ 工伤赔偿大概多少？填这 4 项</h2>
+      <div class="field">
+        <label>本人月工资（元）<span class="tip">＝受伤前12个月平均月工资</span></label>
+        <input type="number" id="gsW" placeholder="例如 5000" min="0">
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>伤残等级</label>
+          <select id="gsL">
+            <option value="">请选择</option>
+            <option value="1">一级伤残</option><option value="2">二级伤残</option><option value="3">三级伤残</option>
+            <option value="4">四级伤残</option><option value="5">五级伤残</option><option value="6">六级伤残</option>
+            <option value="7">七级伤残</option><option value="8">八级伤残</option><option value="9">九级伤残</option>
+            <option value="10">十级伤残</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>受伤后停工留薪（月）<span class="tip">＝养伤治疗几个月</span></label>
+          <input type="number" id="gsM" placeholder="例如 3" min="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>住院天数</label>
+          <input type="number" id="gsD" placeholder="例如 20" min="0">
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <label class="check"><input type="checkbox" id="gsLeave"> 已和单位解除劳动关系<br><span class="tip" style="font-size:11px">（5级以上才有额外补助）</span></label>
+        </div>
+      </div>
+      <button class="btn btn-gs" onclick="calcGs()">💰 点一下，算出大概赔多少</button>
+      <div class="out" id="gsOut"></div>
+    </div>
+  </div>
+
+  <!-- ============ 交通事故计算器 ============ -->
+  <div id="paneJt" class="hidden">
+    <div class="card">
+      <h2>🚗 交通事故赔偿大概多少？</h2>
+      <div class="row">
+        <div class="field"><label>医疗费（元）</label><input type="number" id="jtMed" placeholder="如 30000" min="0"></div>
+        <div class="field"><label>住院天数</label><input type="number" id="jtDays" placeholder="如 14" min="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>营养费（元）<span class="tip">可填0</span></label><input type="number" id="jtYin" placeholder="如 2000" min="0"></div>
+        <div class="field"><label>护理费（元）<span class="tip">可填0</span></label><input type="number" id="jtGuard" placeholder="如 3000" min="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>误工费（元）<span class="tip">可填0</span></label><input type="number" id="jtWu" placeholder="如 8000" min="0"></div>
+        <div class="field"><label>交通费（元）<span class="tip">可填0</span></label><input type="number" id="jtTf" placeholder="如 500" min="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>伤残等级</label>
+          <select id="jtL">
+            <option value="">没伤残选这个</option>
+            <option value="10">十级</option><option value="9">九级</option><option value="8">八级</option><option value="7">七级</option>
+            <option value="6">六级</option><option value="5">五级</option><option value="4">四级</option><option value="3">三级</option>
+            <option value="2">二级</option><option value="1">一级</option>
+          </select>
+        </div>
+        <div class="field"><label>年龄（岁）</label><input type="number" id="jtAge" placeholder="如 45" min="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>被扶养人生活费（元）<span class="tip">可填0</span></label><input type="number" id="jtKid" placeholder="如 0" min="0"></div>
+        <div class="field"><label>精神损害抚慰金（元）<span class="tip">可填0，一般5000-8万</span></label><input type="number" id="jtSp" placeholder="如 10000" min="0"></div>
+      </div>
+      <div class="field">
+        <label>我方承担的责任比例（%）<span class="tip">＝交警认定你负几成责，如你负3成填30</span></label>
+        <input type="number" id="jtResp" placeholder="如 0（对方全责）" min="0" max="100">
+      </div>
+      <button class="btn btn-jt" onclick="calcJt()">💰 点一下，算出大概赔多少</button>
+      <div class="out" id="jtOut"></div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <div class="cta-box">
+    <div class="a">📞 算完心里没底？</div>
+    <div class="b">直接电话咨询安徽合肥执业律师 <b style="color:#ffe2a0">152-0986-1944</b>，或点下方留言，带证据帮你捋清到底能拿多少。</div>
+  </div>
+</div>
+
+<div class="foot">
+  本计算按安徽当地口径估算，非正式法律意见；标准以安徽省人社厅、统计局最新公布为准。<br>
+  © 合肥金讼法律咨询有限公司 · 律师原创普法
+  <br><a href="index.html" style="color:#1d4ed8;text-decoration:none">← 返回首页</a>
+</div>
+
+<script>
+function money(n){n=Math.round(n||0);return n.toLocaleString('zh-CN')+' 元';}
+function switchCalc(k){
+  document.getElementById('paneGs').classList.toggle('hidden',k!=='gs');
+  document.getElementById('paneJt').classList.toggle('hidden',k!=='jt');
+  document.getElementById('tabGs').classList.toggle('on',k==='gs');
+  document.getElementById('tabJt').classList.toggle('on',k==='jt');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function fmtRows(rows){
+  var h='<div class="card"><h2 style="color:#111">📋 明细分项</h2>';
+  rows.forEach(function(r){h+='<div class="rr"><span class="k">'+r[0]+'</span><span class="v">'+r[1]+'</span></div>';});
+  return h+'</div>';
+}
+/* ===== 工伤 ===== */
+function calcGs(){
+  var w=parseFloat(document.getElementById('gsW').value)||0;
+  var l=parseInt(document.getElementById('gsL').value)||0;
+  var m=parseFloat(document.getElementById('gsM').value)||0;
+  var d=parseFloat(document.getElementById('gsD').value)||0;
+  var leave=document.getElementById('gsLeave').checked;
+  if(!l){document.getElementById('gsOut').innerHTML='<div class="note" style="color:#c24137">⚠️ 请先选择伤残等级</div>';return;}
+  if(!w){document.getElementById('gsOut').innerHTML='<div class="note" style="color:#c24137">⚠️ 请填本人月工资</div>';return;}
+  var SP=7999; // 安徽社平工资(元/月) 2026口径
+  var MONE={1:27,2:25,3:23,4:21,5:18,6:16,7:13,8:11,9:9,10:7};
+  var MED={5:10,6:8,7:10,8:8,9:6,10:4};
+  var EMP={5:40,6:34,7:20,8:15,9:10,10:5};
+  var wCap=Math.min(Math.max(w,0.6*SP),3*SP);
+  var rows=[];
+  rows.push(['一次性伤残补助金',money(MONE[l]*wCap),'(按'+MONE[l]+'个月×本人工资折算)']);
+  if(m)rows.push(['停工留薪期工资',money(m*w),'(养伤这几个月工资照发)']);
+  if(d)rows.push(['住院伙食补助',money(20*d),'(安徽约20元/天×'+d+'天)']);
+  var yl=0,jy=0;
+  if(leave&&l>=5){yl=MED[l]*SP;jy=EMP[l]*SP;rows.push(['一次性工伤医疗补助金',money(yl),'(安徽约'+MED[l]+'个月×社平工资)']);rows.push(['一次性伤残就业补助金',money(jy),'(安徽约'+EMP[l]+'个月×社平工资)']);}
+  var total=0;rows.forEach(function(r){total+=parseFloat(r[1].replace(/[^0-9]/g,''));});
+  var h=fmtRows(rows);
+  h+='<div class="card"><div class="rr total"><span class="k">合计（不含医疗费）</span><span class="v">'+money(total)+'</span></div></div>';
+  h+='<div class="note">说明：本人工资＝受伤前12个月平均缴费工资，低于社平60%按60%算、高于300%按300%算。解除劳动关系的，5-6级才有一次性医疗/就业补助（月数为安徽常见口径）。医疗费按医保/工伤基金按规定报销，没算进合计。</div>';
+  document.getElementById('gsOut').innerHTML=h;
+  document.getElementById('gsOut').scrollIntoView({behavior:'smooth'});
+}
+/* ===== 交通事故 ===== */
+function calcJt(){
+  var med=parseFloat(document.getElementById('jtMed').value)||0;
+  var days=parseFloat(document.getElementById('jtDays').value)||0;
+  var yin=parseFloat(document.getElementById('jtYin').value)||0;
+  var guard=parseFloat(document.getElementById('jtGuard').value)||0;
+  var wu=parseFloat(document.getElementById('jtWu').value)||0;
+  var l=parseInt(document.getElementById('jtL').value)||0;
+  var age=parseFloat(document.getElementById('jtAge').value)||0;
+  var base=parseFloat(document.getElementById('jtBase')&&document.getElementById('jtBase').value)||51737;
+  var kid=parseFloat(document.getElementById('jtKid').value)||0;
+  var sp=parseFloat(document.getElementById('jtSp').value)||0;
+  var tf=parseFloat(document.getElementById('jtTf').value)||0;
+  var resp=parseFloat(document.getElementById('jtResp').value)||0;
+  if(!med&&!l){document.getElementById('jtOut').innerHTML='<div class="note" style="color:#c24137">⚠️ 至少填医疗费，或选伤残等级</div>';return;}
+  var years=20; if(age>=60&&age<75)years=20-(age-60); else if(age>=75)years=5; years=Math.max(years,5);
+  var coeff=(11-l)*10/100;
+  var can=base*years*coeff;
+  var rows=[];
+  rows.push(['医疗费',money(med),'凭票据据实']);
+  if(days)rows.push(['住院伙食补助',money(50*days),'(合肥约50元/天×'+days+'天)']);
+  if(yin)rows.push(['营养费',money(yin),'按鉴定营养期']);
+  if(guard)rows.push(['护理费',money(guard),'医疗期+鉴定护理期']);
+  if(wu)rows.push(['误工费',money(wu),'按实际减少或行业标准']);
+  if(l)rows.push(['残疾赔偿金',money(can),'(按安徽约'+base.toLocaleString('zh-CN')+'元/年×'+years+'年×'+Math.round(coeff*100)+'%'+(l?'，'+l+'级':'')+')']);
+  if(kid)rows.push(['被扶养人生活费',money(kid),'计入残疾赔偿金']);
+  if(sp)rows.push(['精神损害抚慰金',money(sp),'酌定5000-8万']);
+  if(tf)rows.push(['交通费',money(tf),'凭票据或酌定']);
+  var sum=0;rows.forEach(function(r){sum+=parseFloat(r[1].replace(/[^0-9]/g,''));});
+  var net=sum*(100-resp)/100;
+  var h=fmtRows(rows);
+  h+='<div class="card"><div class="rr total"><span class="k">依法可主张合计</span><span class="v">'+money(sum)+'</span></div>'+(resp?('<div class="rr total"><span class="k">按我方责任'+resp+'%折算后</span><span class="v">'+money(net)+'</span></div>'):'')+'</div>';
+  h+='<div class="note">说明：安徽2026口径——残疾/死亡赔偿金基数约51737元/年、被扶养人生活费30539元/年、丧葬费52708元、护理费约174元/天、住院伙食50元/天。医疗费通常先在交强险内赔付；责任折算为估算，具体以法院认定为准。</div>';
+  document.getElementById('jtOut').innerHTML=h;
+  document.getElementById('jtOut').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
