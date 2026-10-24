@@ -66,6 +66,11 @@ a{color:var(--blue)}
 .cfull h4:first-child{margin-top:0}
 .cfull p{margin:0;color:#2a3350}
 .cfull .hl{color:#b8860b;font-style:normal;font-weight:800}
+.gov-links{display:flex;gap:8px;margin:10px 0 2px}
+.gov-btn{flex:1;text-align:center;padding:10px 6px;border-radius:10px;font-size:12.5px;font-weight:700;text-decoration:none;background:linear-gradient(135deg,#0d2452,#1d4ed8);color:#fff;box-shadow:var(--shadow-sm);transition:.2s}
+.gov-btn:hover{transform:translateY(-1px)}
+.gov-ws{background:linear-gradient(135deg,#8a6d1d,#c9a227)}
+.gov-tip{text-align:center;font-size:11px;color:var(--sub);margin:6px 0 0}
 .empty{text-align:center;color:var(--sub);padding:26px 10px;font-size:13.5px;background:#fff;border:1px dashed var(--line);border-radius:var(--radius)}
 .fbar{position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:8px;padding:9px 18px;margin-top:18px}
 .fb{flex:1;text-align:center;padding:11px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-sm)}
@@ -104,6 +109,12 @@ a{color:var(--blue)}
       <button class="btn-r" onclick="doReset()">重置</button>
     </div>
   </div>
+
+  <div class="gov-links">
+    <a class="gov-btn" href="https://rmfyalk.court.gov.cn" target="_blank" rel="noopener">🏛 人民法院案例库 ↗</a>
+    <a class="gov-btn gov-ws" href="https://wenshu.court.gov.cn" target="_blank" rel="noopener">📄 中国裁判文书网 ↗</a>
+  </div>
+  <p class="gov-tip">想自己查原文？点上面直达官方库（需注册登录）</p>
 
   <div class="cnt" id="cnt"></div>
   <div class="clist" id="list"></div>
