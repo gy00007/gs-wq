@@ -66,7 +66,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-se
   <h1>🔒 后台密码</h1>
   <p>仅律师本人可查看留言，请输入访问密码</p>
   <input type="password" id="pwd" placeholder="请输入密码" autocomplete="current-password">
-  <button class="btn" onclick="doLogin()">进入后台</button>
+  <button class="btn" onclick="doLogin">进入后台</button>
   <div class="msg" id="gateMsg"></div>
 </div>
 
@@ -76,8 +76,8 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-se
     <div class="stat">全部 <b id="cAll">0</b> 条</div>
     <div class="stat new">未读 <b id="cNew">0</b> 条</div>
     <div style="display:flex;gap:8px">
-      <button class="primary" onclick="loadMsgs()">🔄 刷新</button>
-      <button onclick="logout()">退出</button>
+      <button class="primary" onclick="loadMsgs">🔄 刷新</button>
+      <button onclick="logout">退出</button>
       <button onclick="window.location='index.html'">返回网站</button>
     </div>
   </div>
@@ -93,28 +93,28 @@ var client = null;
 var ADMIN_PWD = "hfgs2026";  // ← 初始密码，用后请自行修改本行并重新上传
 var editingDel = null;
 
-function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(function(){t.style.display='none';},3000); }
+function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(function{t.style.display='none';},3000); }
 
-function ensureClient(){
+function ensureClient{
   if(!client){ client = aipexbase.createClient({ baseUrl: "https://baas.kuafuai.net/baas-api", apiKey: "baas_uqkF87OK" }); }
 }
 
 function gate(is){ document.getElementById('gate').classList.toggle('hidden',!is); document.getElementById('panel').classList.toggle('hidden',is); }
 
-function doLogin(){
+function doLogin{
   var p=document.getElementById('pwd').value;
-  if(p===ADMIN_PWD){ sessionStorage.setItem('zxadmin','1'); gate(false); loadMsgs(); document.getElementById('gateMsg').textContent=''; }
+  if(p===ADMIN_PWD){ sessionStorage.setItem('zxadmin','1'); gate(false); loadMsgs; document.getElementById('gateMsg').textContent=''; }
   else{ document.getElementById('gateMsg').textContent='密码错误，请重试'; }
 }
 
-function logout(){ sessionStorage.removeItem('zxadmin'); gate(true); document.getElementById('pwd').value=''; }
+function logout{ sessionStorage.removeItem('zxadmin'); gate(true); document.getElementById('pwd').value=''; }
 
 function mEsc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-async function loadMsgs(){
-  ensureClient();
+async function loadMsgs{
+  ensureClient;
   try{
-    var res=await client.db.from('zuixun').list();
+    var res=await client.db.from('zuixun').list;
     var arr=(res&&res.data)||(Array.isArray(res)?res:[]);
     // 按 id 倒序（新的在前）
     arr.sort(function(a,b){ return (b.id||0)-(a.id||0); });
@@ -140,8 +140,8 @@ async function loadMsgs(){
 }
 
 async function markRead(id){
-  ensureClient();
-  try{ await client.db.from('zuixun').update().set({is_read:'1'}).eq('id',id); loadMsgs(); }
+  ensureClient;
+  try{ await client.db.from('zuixun').update.set({is_read:'1'}).eq('id',id); loadMsgs; }
   catch(e){ toast('操作失败'); console.error(e); }
 }
 
@@ -152,14 +152,14 @@ function askDel(id){
 }
 
 async function delMsg(id){
-  ensureClient();
-  try{ await client.db.from('zuixun').delete().eq('id',id); toast('已删除'); loadMsgs(); }
+  ensureClient;
+  try{ await client.db.from('zuixun').delete.eq('id',id); toast('已删除'); loadMsgs; }
   catch(e){ toast('删除失败'); console.error(e); }
 }
 
 // 初始化
-ensureClient();
-if(sessionStorage.getItem('zxadmin')==='1'){ gate(false); loadMsgs(); }
+ensureClient;
+if(sessionStorage.getItem('zxadmin')==='1'){ gate(false); loadMsgs; }
 else{ gate(true); }
 </script>
 </body>
