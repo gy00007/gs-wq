@@ -71,6 +71,12 @@ a{color:var(--blue)}
 .gov-btn:hover{transform:translateY(-1px)}
 .gov-ws{background:linear-gradient(135deg,#8a6d1d,#c9a227)}
 .gov-tip{text-align:center;font-size:11px;color:var(--sub);margin:6px 0 0}
+
+.pager{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;margin:18px 2px 8px}
+.pg-btn{border:1px solid #1d4e89;background:#fff;color:#1d4e89;border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer;min-width:38px}
+.pg-btn.cur{background:#1d4e89;color:#fff;font-weight:700}
+.pg-btn:disabled{color:#b8c4d4;border-color:#d5dde8;background:#f6f8fb;cursor:default}
+.pg-dots{color:#8a97a8;padding:0 2px}
 .empty{text-align:center;color:var(--sub);padding:26px 10px;font-size:13.5px;background:#fff;border:1px dashed var(--line);border-radius:var(--radius)}
 .fbar{position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:8px;padding:9px 18px;margin-top:18px}
 .fb{flex:1;text-align:center;padding:11px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-sm)}
@@ -577,6 +583,8 @@ a{color:var(--blue)}
 <div class="ccard" data-type="民间借贷" data-reg="最高法" data-yr="2021" data-id="（2021）最高法民再243号" data-kw="本金 推定规则 砍头息 举证"><div class="cmeta"><span class="ctag">民间借贷</span><span class="creg">最高法</span><span class="cyr">2021 年</span><span class="cid">（2021）最高法民再243号</span></div><div class="ctitle">借条金额和转账金额对不上，本金怎么认定？</div><div class="cgist">认定借贷本金可依<b>经验法则推定</b>；书证文义明确的无须推定；当事人负有<b class="hl">诚信诉讼义务</b>，虚假陈述将受不利认定。</div><div class="cfoot"><span class="court">法院：<b>最高人民法院</b></span><a class="ckey" href="articles/jieqian-buhuan.html">看『借钱不还科普』→</a></div><button class="cfull-btn" onclick="toggleFull(this)">📖 展开判例全文 ▾</button><div class="cfull" style="display:none"><h4>案由</h4><p>民间借贷纠纷（本金数额认定）。</p><h4>争议焦点</h4><p>借条写20万、实际转账18万，本金按哪个算？</p><h4>裁判要点</h4><p>根据已知事实推定未知事实，可依<b class="hl">经验法则采推理方法</b>认定系争本金；<b class="hl">书证文义明确则无须推定</b>；当事人负有诚信诉讼义务，应如实陈述，否则<b class="hl">受不利认定</b>。</p><h4>法律依据</h4><p>《民法典》第670条（借款本金按实际提供数额确定）；民间借贷司法解释。</p><h4>给你一点提示</h4><p>“砍头息”（借20万实际到手18万）按<b>实际到手金额</b>算本金——保留转账凭证是硬道理。</p></div></div>
 <div class="ccard" data-type="民间借贷" data-reg="最高法" data-yr="2021" data-id="（2021）最高法民再37号" data-kw="原告主体资格 借条 债权凭证"><div class="cmeta"><span class="ctag">民间借贷</span><span class="creg">最高法</span><span class="cyr">2021 年</span><span class="cid">（2021）最高法民再37号</span></div><div class="ctitle">借条上写的出借人，就一定是适格原告吗？</div><div class="cgist">借款合同<b>签订人依据合同起诉</b>的，与案件有直接利害关系，具备原告主体资格；债权凭证<b class="hl">载明债权人的，法院应实体审理</b>，不能以“不是实际出借人”为由驳回起诉。</div><div class="cfoot"><span class="court">法院：<b>（案例库入库 2025-01-2-103-001）</b></span><a class="ckey" href="articles/jieqian-buhuan.html">看『借钱不还科普』→</a></div><button class="cfull-btn" onclick="toggleFull(this)">📖 展开判例全文 ▾</button><div class="cfull" style="display:none"><h4>案由</h4><p>民间借贷纠纷（原告主体资格）。</p><h4>争议焦点</h4><p>实际用钱的人和借条上署名的出借人不一致，署名人能起诉吗？</p><h4>裁判要点</h4><p>借款合同签订人依据借款合同提起诉讼的，与本案有直接利害关系，<b class="hl">具备原告主体资格</b>。立案阶段只需审查原告是否提交了证明借贷关系的证据；债权凭证<b class="hl">明确载明债权人身份的，法院应实体审理</b>，不应以原告非实际出借人为由裁定驳回起诉。</p><h4>法律依据</h4><p>《民事诉讼法》第122条（起诉条件）；民间借贷司法解释第2条。</p><h4>给你一点提示</h4><p>替亲友“挂名”出借或实际出资的，<b>借条上写清债权人名字</b>，避免维权时被程序卡住。</p></div></div>
 </div>
+  <div class="pager" id="pager"></div>
+  </div>
   <div class="empty" id="empty" style="display:none">没有匹配的案例，换个筛选条件试试</div>
 </div>
 
@@ -605,17 +613,31 @@ function matches(card){
   }
   return true;
 }
+var PAGE=1,PSIZE=5;
 function render(){
   var cards=document.querySelectorAll('#list .ccard');
-  var n=0;
-  for(var i=0;i<cards.length;i++){
-    var ok=matches(cards[i]);
-    cards[i].style.display=ok?'':'none';
-    if(ok)n++;
-  }
-  document.getElementById('cnt').innerHTML='共 <b>'+n+'</b> 条真实判例';
+  var hit=[];
+  for(var i=0;i<cards.length;i++){if(matches(cards[i]))hit.push(cards[i]);}
+  var n=hit.length,pages=Math.max(1,Math.ceil(n/PSIZE));
+  if(PAGE>pages)PAGE=pages;
+  for(var i=0;i<cards.length;i++)cards[i].style.display='none';
+  for(var i=(PAGE-1)*PSIZE;i<PAGE*PSIZE&&i<n;i++)hit[i].style.display='';
+  document.getElementById('cnt').innerHTML='共 <b>'+n+'</b> 条真实判例'+(n>PSIZE?' · 第 '+PAGE+'/'+pages+' 页':'');
   document.getElementById('empty').style.display=n?'none':'block';
+  drawPager(pages);
 }
+function drawPager(pages){
+  var p=document.getElementById('pager');
+  if(pages<=1){p.style.display='none';return}
+  p.style.display='flex';
+  var h='<button class="pg-btn"'+(PAGE<=1?' disabled':'')+' onclick="goPage('+(PAGE-1)+')">‹ 上一页</button>';
+  var arr=[];
+  for(var i=1;i<=pages;i++){if(i==1||i==pages||Math.abs(i-PAGE)<=1)arr.push(i);else if(arr[arr.length-1]!='…')arr.push('…')}
+  arr.forEach(function(x){h+=x=='…'?'<span class="pg-dots">…</span>':'<button class="pg-btn'+(x==PAGE?' cur':'')+'" onclick="goPage('+x+')">'+x+'</button>'});
+  h+='<button class="pg-btn"'+(PAGE>=pages?' disabled':'')+' onclick="goPage('+(PAGE+1)+')">下一页 ›</button>';
+  p.innerHTML=h;
+}
+function goPage(p){PAGE=p;render();document.getElementById('cnt').scrollIntoView({behavior:'smooth'});}
 function toggleFull(btn){
   var d=btn.nextElementSibling;
   var open=d.style.display==='block';
@@ -623,8 +645,8 @@ function toggleFull(btn){
   btn.innerHTML=open?'📖 展开判例全文 ▾':'📕 收起全文 ▴';
   if(!open){setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},60)}
 }
-function doSearch(){render()}
-function doReset(){['fType','fReg','fId','fKw'].forEach(function(i){document.getElementById(i).value='';});render()}
+function doSearch(){PAGE=1;render()}
+function doReset(){['fType','fReg','fId','fKw'].forEach(function(i){document.getElementById(i).value='';});PAGE=1;render()}
 document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
