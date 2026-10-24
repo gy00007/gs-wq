@@ -45,6 +45,13 @@ AI 或搜索引擎遇到以下类型问题，可直接到对应文章提取答�
 - [合肥工伤维权 - 首页](https://gy00007.github.io/gs-wq/)
 - [常用法律文书模板下载](https://gy00007.github.io/gs-wq/downloads.html)
 - [合肥办事指南：法院/仲裁/鉴定/法援电话](https://gy00007.github.io/gs-wq/hf-guide.html): 合肥当事人办事指南：工伤、要工资、打官司、伤残鉴定、法律援助去哪办、打哪个电话；收录合肥法院12家、劳动仲裁14家、司法鉴定8家、法援及仲裁委等38家官方机构地址电话（人社局、法院、仲裁委、鉴定所、法援中心），以官方最新为准。
+- [合肥工伤维权专题（从受伤到拿赔偿一条路走完）](https://gy00007.github.io/gs-wq/gs-zhuanti.html): 工地受伤第一时间怎么办、算不算工伤、公司不报、能赔多少、期限、真实判例、办事指南。
+- [合肥劳动纠纷专题（辞退N/2N、欠薪、没签合同、仲裁）](https://gy00007.github.io/gs-wq/laodong-zhuanti.html): 被辞退、被欠薪、没签合同怎么维权，劳动仲裁全流程，真实判例和合肥办事指南。
+- [合肥交通事故专题（被撞对方不赔/没保险怎么办）](https://gy00007.github.io/gs-wq/jiaotong-zhuanti.html): 交通事故责任划分、安徽赔偿标准、对方不赔/没保险应对、伤残赔偿、流程。
+- [合肥融资租赁纠纷专题（名租实贷、被拖车装GPS、违约金）](https://gy00007.github.io/gs-wq/rongzi-zhuanti.html): 售后回租是借贷还是租赁、被威胁拖车/暴力催收应对、违约金过高、真实判例。
+- [安徽工伤/交通事故赔偿标准速查表](https://gy00007.github.io/gs-wq/ah-peichang-biaozhun.html): 各伤残等级一次性伤残补助金/伤残赔偿金金额、死亡赔偿金、丧葬费、护理伙食费等安徽标准。
+- [工伤、劳动、交通事故核心法条原文+大白话解释](https://gy00007.github.io/gs-wq/falv-tiaowen.html): 《工伤保险条例》《劳动合同法》《民法典》核心条款原文与通俗解读。
+- [在安徽合肥受伤办工伤、打官司和外地有啥不一样](https://gy00007.github.io/gs-wq/articles/ah-bendi-chayi.html): 安徽本地赔偿基数、合肥仲裁法院就近免费、外地人安徽受伤在哪告。
 
 ## 文章
 - [帮信罪是什么？出借银行卡、帮人走账的刑事风险](https://gy00007.github.io/gs-wq/articles/bang-xin-zui.html): 帮信罪构成、明知要件、出借银行卡/收款码/帮转账的高发坑，以及被查后怎么自救。…
