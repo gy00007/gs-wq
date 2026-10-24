@@ -65,6 +65,7 @@ a{color:var(--blue)}
 .cat span{font-size:11px;color:var(--sub)}
 
 /* ===== 文章卡片 ===== */
+.art-search{position:relative;margin:0 0 12px}.art-search input{width:100%;box-sizing:border-box;padding:11px 14px 11px 40px;border:1.5px solid var(--line);border-radius:12px;font-size:14px;color:var(--ink);background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23918fb1' stroke-width='2'><circle cx='11' cy='11' r='7'/><line x1='21' y1='21' x2='16.5' y2='16.5'/></svg>") 13px center/18px no-repeat;outline:none;transition:.2s}.art-search input:focus{border-color:#4f7cff;box-shadow:0 0 0 3px rgba(79,124,255,.12)}.art-result{font-size:12px;color:var(--sub);margin:9px 2px 0}.art-more{display:none;width:100%;margin:12px 0 0;padding:11px;border:1.5px dashed #4f7cff;border-radius:12px;background:rgba(79,124,255,.06);color:var(--blue);font-size:14px;font-weight:700;cursor:pointer;text-align:center;transition:.2s}.art-more:hover{background:rgba(79,124,255,.14)}
 .posts{display:grid;gap:10px}
 .post{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;text-decoration:none;color:var(--ink);display:block;transition:.22s;box-shadow:var(--shadow-sm);overflow:hidden}
 .post::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(#c9a227,#1d4ed8);opacity:0;transition:.25s}
@@ -272,6 +273,7 @@ a.f-step:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   </div>
 
   <h2 class="section-title">📖 科普文章</h2>
+  <div class="art-search"><input type="text" id="artSearch" placeholder="🔍 搜文章：工伤 / 离婚 / 借条 / 辞退…" oninput="artFilter()"><div class="art-result" id="artResult"></div></div>
   <div class="posts">
     <a class="post" href="articles/danbao-zeren.html">
       <span class="c">借贷担保</span>
@@ -411,6 +413,8 @@ a.f-step:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
   </div>
 
+  <button id="artMore" class="art-more" onclick="artMore()">📂 显示更多文章</button>
+
   <div class="about">
     <details>
       <summary>👨‍⚖️ 关于本站（作者 · 承诺）</summary>
@@ -433,5 +437,37 @@ a.f-step:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   <a class="fb-msg" href="zaixian.html">📝 在线留言咨询</a>
 </div>
 
+<script>
+(function(){
+  function artInit(){
+    var container=document.querySelector('.posts');
+    if(!container)return;
+    var posts=[].slice.call(container.querySelectorAll('.post'));
+    posts.forEach(function(p,k){
+      p.setAttribute('data-idx',k);
+      var h=p.querySelector('h3'),c=p.querySelector('.c'),s=p.querySelector('p');
+      p.setAttribute('data-txt',((h?h.textContent:'')+' '+(c?c.textContent:'')+' '+(s?s.textContent:'')).toLowerCase());
+    });
+    window._posts=posts;window._shown=8;artApply();
+  }
+  window.artFilter=function(){artApply();};
+  window.artMore=function(){if(!window._posts)return;window._shown=window._posts.length;artApply();};
+  function artApply(){
+    if(!window._posts)return;
+    var kw=(document.getElementById('artSearch')||{}).value||'';kw=kw.trim().toLowerCase();
+    var tip=document.getElementById('artResult'),more=document.getElementById('artMore');
+    var m=0;
+    window._posts.forEach(function(p){
+      var hit=!kw||p.getAttribute('data-txt').indexOf(kw)>=0;
+      var show=hit&&(kw||parseInt(p.getAttribute('data-idx'))<window._shown);
+      p.style.display=show?'':'none';
+      if(hit)m++;
+    });
+    if(more)more.style.display=(kw||window._posts.length<=window._shown)?'none':'block';
+    if(tip){if(kw){tip.style.display='block';tip.textContent='找到 '+m+' 篇相关文章'+(m?'':'，换个关键词试试');}else{tip.style.display='none';}}
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',artInit);}else{artInit();}
+})();
+</script>
 </body>
 </html>
