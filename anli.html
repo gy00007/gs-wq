@@ -7,7 +7,7 @@
 <meta name="description" content="安徽合肥执业律师整理的公开真实判例库：按案件类型、地区、案号、关键词检索，看工伤、融资租赁、婚约财产、保证担保、醉驾等同类案件法院怎么判。判例均摘自公开裁判文书，普法参考。">
 <meta name="keywords" content="判例,真实案例,法院怎么判,案号,融资租赁,名租实贷,彩礼返还,保证担保,危险驾驶,安徽,合肥">
 <meta property="og:title" content="真实判例库 · 同类案件法院怎么判">
-<meta property="og:description" content="按类型/地区/案号检索的真实判例科普库">
+<meta property="og:description" content="按类型/地区/案号检索，点开看判例全文">
 <meta property="og:type" content="article">
 <link rel="canonical" href="https://gy00007.github.io/gs-wq/anli.html">
 <style>
@@ -26,8 +26,6 @@ a{color:var(--blue)}
 .pgtitle{margin:20px 0 6px;font-size:20px;color:var(--navy);font-weight:800}
 .pgsub{font-size:12.5px;color:var(--sub);margin-bottom:14px}
 .pgsub b{color:var(--gold);font-weight:700}
-
-/* 检索面板 */
 .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow-sm);margin-bottom:14px}
 .rows{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .fld{display:flex;flex-direction:column;gap:4px}
@@ -43,8 +41,6 @@ a{color:var(--blue)}
 .btn-r{background:var(--soft);color:var(--navy)}
 .cnt{margin:2px 2px 10px;font-size:12.5px;color:var(--sub)}
 .cnt b{color:var(--gold)}
-
-/* 案例卡片 */
 .clist{display:grid;gap:10px}
 .ccard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:13px 14px;box-shadow:var(--shadow-sm);transition:.22s;overflow:hidden}
 .ccard:hover{box-shadow:var(--shadow)}
@@ -61,6 +57,13 @@ a{color:var(--blue)}
 .court b{color:var(--navy)}
 .ckey{font-size:12px;color:var(--blue);text-decoration:none;font-weight:600}
 .ckey:hover{text-decoration:underline}
+.cfull-btn{display:block;width:100%;margin-top:9px;padding:8px;border:1px dashed #4f7cff;border-radius:9px;background:var(--soft);color:var(--blue);font-size:12.5px;font-weight:700;cursor:pointer;text-align:center;transition:.2s;-webkit-appearance:none;appearance:none}
+.cfull-btn:hover{background:rgba(79,124,255,.13)}
+.cfull{margin-top:9px;padding:11px 13px;background:#fbfcff;border:1px solid var(--line);border-radius:10px;font-size:12.8px;color:var(--ink);line-height:1.85;display:none}
+.cfull h4{color:var(--navy);font-size:12.5px;margin:9px 0 3px;font-weight:800}
+.cfull h4:first-child{margin-top:0}
+.cfull p{margin:0;color:#2a3350}
+.cfull .hl{color:#b8860b;font-style:normal;font-weight:800}
 .empty{text-align:center;color:var(--sub);padding:26px 10px;font-size:13.5px;background:#fff;border:1px dashed var(--line);border-radius:var(--radius)}
 .fbar{position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;gap:8px;padding:9px 18px;margin-top:18px}
 .fb{flex:1;text-align:center;padding:11px;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:var(--shadow-sm)}
@@ -77,9 +80,8 @@ a{color:var(--blue)}
 
 <div class="wrap">
   <h1 class="pgtitle">📚 真实案例库 · 同类案法院怎么判</h1>
-  <p class="pgsub">判例均<b>摘自公开裁判文书</b>，案号可查，普法官参考，不代表本网站律师承办结果。想查你类似的案子怎么判，直接筛。</p>
+  <p class="pgsub">判例均<b>摘自公开裁判文书</b>，案号可查，普法官参考，不代表本网站律师承办结果。点<b>「展开判例全文」</b>可看每条完整解读。</p>
 
-  <!-- 检索面板 -->
   <div class="panel">
     <div class="rows">
       <div class="fld"><label>案件类型</label>
@@ -112,31 +114,40 @@ a{color:var(--blue)}
 var CASES=[
 {id:"（2022）闽0128民初5080号",t:"未登记结婚，转给对方的20万算彩礼还是赠与？",type:"婚约财产·彩礼",reg:"福建",court:"福建平潭法院",yr:2022,kw:"彩礼 赠与 婚约 返还",
  gist:"男方为缔结婚姻分两笔各转10万元共20万元给女方，后未登记结婚。法院对比双方零散往来后认定<b>该20万元系彩礼而非恋爱赠与，判决全额返还</b>。",
- art:"articles/caili-fanhuan.html",artn:"彩礼全流程科普"},
+ art:"articles/caili-fanhuan.html",artn:"彩礼全流程科普",
+ full:"<h4>案情概要</h4><p>男方郑某为缔结婚姻，分两笔各转10万元、共20万元给女方，后双方未能登记结婚；双方便另有其他零散资金往来。</p><h4>争议焦点</h4><p>这20万元究竟是<b>彩礼</b>还是<b>恋爱期间的赠与</b>？能否要求返还？</p><h4>裁判要点</h4><p>法院对比双方其他零散资金往来后认定，该20万元系以缔结婚姻为目的给付的彩礼而非恋爱赠与，判决<b class='hl'>全额返还</b>。</p><h4>法律依据</h4><p>《民法典》第1042条禁止借婚姻索取财物；《最高人民法院关于审理涉彩礼纠纷案件适用法律若干问题的规定》明确，给付彩礼系以缔结婚姻为目的的附条件给付。</p><h4>给你一点提示</h4><p>彩礼能不能退、退多少，核心看<b>婚约有没有缔结成功、登记后有没有共同生活</b>，与谁先提分手无关。</p>"},
 {id:"（2023）浙08民终445号",t:"借婚姻索取财物，索要的金饰礼金能要回吗？",type:"婚约财产·彩礼",reg:"浙江",court:"（人民法院案例库入库 2024-07-2-012-001）",yr:2023,kw:"婚姻 索取财物 彩礼 返还",
  gist:"一方反复以“结婚先决条件”索要财物却始终不能满足结婚要求。法院认定该行为属<b>借婚姻索取财物而非恋爱赠与，判决索取财物全部返还</b>。",
- art:"articles/caili-fanhuan.html",artn:"彩礼全流程科普"},
+ art:"articles/caili-fanhuan.html",artn:"彩礼全流程科普",
+ full:"<h4>案情概要</h4><p>涂某经人介绍与蒋某相识，蒋某自认识起便不断以「结婚先决条件」为由，先后索要金饰、压岁钱、改口费等财物，却始终不愿满足涂某提出的结婚要求。涂某诉请返还。</p><h4>争议焦点</h4><p>这些财物是<b>婚恋中的无偿赠与</b>，还是<b>借婚姻索取财物</b>？应否返还？</p><h4>裁判要点</h4><p>法院认定该行为属<b class='hl'>借婚姻索取财物而非恋爱赠与</b>，判决所索取财物<b class='hl'>全部返还</b>。</p><h4>法律依据</h4><p>《民法典》第1042条明确「禁止借婚姻索取财物」；最高人民法院涉彩礼纠纷司法解释。</p><h4>给你一点提示</h4><p>以「结婚」为名不断索要财物、却迟迟不落实结婚的，法律上倾向认定为借婚姻索取财物，可依法主张返还。</p>"},
 {id:"（2016）浙03民终2086号",t:"担保人保证期间届满，还需要还钱吗？",type:"保证担保",reg:"浙江",court:"（《人民法院案例选》裁判规则）",yr:2016,kw:"保证 担保 保证期间 免责 追偿",
  gist:"涉及<b>连带共同保证的免责与追偿</b>。债权人未在保证期间内依法向保证人主张权利，保证人不再承担保证责任（保证期间届满免责）。",
- art:"articles/danbao-zeren.html",artn:"担保免责科普"},
+ art:"articles/danbao-zeren.html",artn:"担保免责科普",
+ full:"<h4>案由</h4><p>民间借贷纠纷中的<b>保证责任</b>争议。</p><h4>争议焦点</h4><p>保证人主张保证期间已经届满、可以不再承担保证责任，是否成立？其他共同保证人之间如何追偿？</p><h4>裁判要点</h4><p>债权人<b class='hl'>未在保证期间内依法向保证人主张权利</b>的，保证人不再承担保证责任（保证期间届满免责）；本案同时涉及连带共同保证人之间的<b class='hl'>免责与追偿</b>。</p><h4>法律依据</h4><p>《民法典》第692条（保证期间）、第693条（保证期间届满保证责任免除）、第686条（保证方式约定不明的按一般保证）；最高人民法院担保制度解释。</p><h4>给你一点提示</h4><p>担保不是「签个字就永远甩不掉」——受<b>保证期间</b>限制，债权人超期未主张可能免责。替人担保前务必看清「保证方式」和「保证期间」。</p>"},
 {id:"（2017）粤03民终2559号",t:"连带共同保证人替别人还了钱，能追偿吗？",type:"保证担保",reg:"广东",court:"（《人民法院案例选》裁判规则）",yr:2017,kw:"保证 担保 追偿 连带",
  gist:"涉及<b>连带共同保证人之间的免责与追偿</b>，明确了共同保证情形下保证责任的划分与追偿路径。",
- art:"articles/danbao-zeren.html",artn:"担保免责科普"},
+ art:"articles/danbao-zeren.html",artn:"担保免责科普",
+ full:"<h4>案由</h4><p>连带共同保证中的<b>责任划分与追偿</b>争议。</p><h4>争议焦点</h4><p>多个保证人共同担保时，责任如何划分？其中一个保证人代偿后，能否、以及如何向其他保证人追偿？</p><h4>裁判要点</h4><p>明确<b class='hl'>连带共同保证情形下各保证人的责任划分与追偿路径</b>，避免债权人「随意找一方要钱」或某一保证人「白担保多担责」。</p><h4>法律依据</h4><p>《民法典》第686、692、693条；最高人民法院担保制度解释。</p><h4>给你一点提示</h4><p>多人共同担保时谁先承担、代偿后能不能找其他人分担，都有规则。签担保合同时写清「保证方式」「保证份额」很重要。</p>"},
 {id:"（2020）沪0115民初4804号",t:"“名租实贷”的利息和违约金太高，超过法定红线了吗？",type:"融资租赁·名租实贷",reg:"上海",court:"（人民法院案例库入库案例）",yr:2020,kw:"融资租赁 利息 违约金 利率 调减 LPR",
  gist:"“以租赁之身、借金融之名、行贷款之实”作负面评价。认定名为借贷后，<b>利息、违约金、或有租金合计限制在年利率24%以内（2020.8.20后按一年期LPR四倍）</b>，已收手续费在应付款中扣除。",
- art:"articles/lilv-yuexian.html",artn:"利率调减科普"},
+ art:"articles/lilv-yuexian.html",artn:"利率调减科普",
+ full:"<h4>案由</h4><p>融资租赁合同纠纷（<b>名为融资租赁、实为借贷</b>）。</p><h4>争议焦点</h4><p>合同被认定为借款后，高额的利息、违约金、服务费等合计是否超出法定利率上限？已收费用如何处理？</p><h4>裁判要点</h4><p>对「以租赁之身、借金融之名、行贷款之实」作负面评价；认定名为借贷后，<b class='hl'>利息、违约金、或有租金等合计受利率上限约束</b>——2020年8月20日后按一年期LPR四倍，此前按年利率24%以内；<b class='hl'>已收手续费、服务费等应在应付款中扣除</b>。</p><h4>法律依据</h4><p>《民法典》第680条（禁止高利放贷）；最高人民法院《关于审理民间借贷案件适用法律问题的规定》第25条（利率上限）。</p><h4>给你一点提示</h4><p>若被「融资租赁」合同以高额租金、服务费、违约金垒高成本，可主张按<b>实际借款本金＋LPR四倍</b>计算，超过部分不还，且已扣费用应冲抵。</p>"},
 {id:"（2021）沪74民终87号",t:"租赁物根本不存在，还是“融资租赁”吗？",type:"融资租赁·名租实贷",reg:"上海",court:"上海金融法院",yr:2021,kw:"融资租赁 租赁物 民间借贷 名租实贷",
  gist:"出租人未能证明租赁物真实存在、缺乏融物属性的，<b>按民间借贷认定</b>；同时也提示，若承租人自认部分租赁物真实、合同并非全然无融物属性，不宜简单否定融资租赁性质。",
- art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普"},
+ art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普",
+ full:"<h4>案由</h4><p>融资租赁合同纠纷（人民法院案例库入库案例）。</p><h4>争议焦点</h4><p>租赁物根本不存在、或只是「账面走个形式」，合同究竟是<b>融资租赁</b>还是<b>借款</b>？</p><h4>裁判要点</h4><p>出租人<b class='hl'>未能证明租赁物真实存在、缺乏「融物」属性</b>的，按民间借贷认定；反之，若承租人自认部分租赁物真实、合同并非全然无融物属性，则不宜简单以举证不能否定融资租赁性质。</p><h4>法律依据</h4><p>《民法典》第735、737条；最高人民法院《关于审理融资租赁合同纠纷案件适用法律问题的解释》第1条。</p><h4>给你一点提示</h4><p>「售后回租」若没有<b>真实租赁物</b>（设备不存在／重复融资／低值高估），法律上可能被认定为借款——这直接决定你要不要按「本金＋LPR四倍」还钱，以及担保是否有效。</p>"},
 {id:"（2021）京民终127号",t:"售后回租租赁物“低值高估”，还是融资租赁吗？",type:"融资租赁·名租实贷",reg:"北京",court:"北京市高级人民法院",yr:2021,kw:"融资租赁 售后回租 民间借贷 担保",
  gist:"售后回租模式下租赁物账面与评估价值<b>相差达十倍、明显“低值高估”</b>、租赁物未能起到担保作用，判定不符合融资租赁法律特征，<b>法律关系为民间借贷</b>。",
- art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普"},
+ art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普",
+ full:"<h4>案由</h4><p>售后回租型<b>融资租赁合同纠纷</b>。</p><h4>争议焦点</h4><p>租赁物「低值高估」、账面与真实价值严重不符，合同是融资租赁还是借贷？</p><h4>裁判要点</h4><p>售后回租模式下租赁物账面价值与评估价值<b class='hl'>相差达十倍、明显「低值高估」</b>、租赁物未能起到担保作用的，判定不符合融资租赁法律特征，<b class='hl'>双方实为借贷关系</b>。</p><h4>法律依据</h4><p>《民法典》第735条；最高人民法院融资租赁合同纠纷司法解释。</p><h4>给你一点提示</h4><p>租赁物<b>真实价值、是否实际转移所有权、能否起到担保作用</b>，是判断「是租赁还是借贷」的三大要点。</p>"},
 {id:"（2019）浙09民终161号",t:"租赁物所有权始终没转移，还是“融资租赁”吗？",type:"融资租赁·名租实贷",reg:"浙江",court:"浙江省舟山市中级人民法院",yr:2019,kw:"融资租赁 所有权 民间借贷 抵押",
  gist:"售后回租中租赁物所有权<b>始终未转移、仅办理抵押</b>，双方未实际发生买卖再回租的事实，认定为<b>名为融资租赁、实为借贷</b>。",
- art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普"},
+ art:"articles/rongzi-zulin-jie-dai.html",artn:"名租实贷科普",
+ full:"<h4>案由</h4><p>售后回租型融资租赁合同纠纷。</p><h4>争议焦点</h4><p>租赁物所有权始终没有真实转移、只是办了个抵押登记，能否成立融资租赁？</p><h4>裁判要点</h4><p>售后回租中租赁物所有权<b class='hl'>始终未转移、仅办理抵押登记</b>，双方未实际发生「先买卖再回租」，认定为<b class='hl'>名为融资租赁、实为民间借贷</b>。</p><h4>法律依据</h4><p>《民法典》第735、737条。</p><h4>给你一点提示</h4><p>只要「租赁物」从来没有真正卖给你、你也没真正买回来，只是办了个抵押做个形式，就可能被认定为借款，利息按借贷规则算。</p>"},
 {id:"(2025)皖1021刑初102号",t:"醉驾拘役1个月缓2个月，罚金2000——安徽缓刑参照",type:"刑事·危险驾驶",reg:"安徽",court:"安徽省怀远县人民法院",yr:2025,kw:"醉驾 危险驾驶 缓刑 拘役 安徽",
  gist:"程某危险驾驶案，判处<b>拘役1个月缓刑2个月、罚金2000元</b>，为安徽醉驾适用缓刑的<b>参照样本</b>。",
- art:"articles/zuijia-weixian.html",artn:"醉驾量刑科普"}
+ art:"articles/zuijia-weixian.html",artn:"醉驾量刑科普",
+ full:"<h4>案由</h4><p><b>危险驾驶罪</b>。</p><h4>基本事实</h4><p>程某酒后驾驶机动车，血液酒精含量达到醉驾标准，涉嫌危险驾驶罪。</p><h4>裁判结果</h4><p>判处<b class='hl'>拘役1个月、缓刑2个月，罚金2000元</b>，为安徽醉驾适用缓刑的<b class='hl'>参照样本</b>。</p><h4>法律依据</h4><p>《刑法》第133条之一（危险驾驶罪）、第72条（缓刑）。</p><h4>给你一点提示</h4><p>血液酒精含量达<b>20～80mg/100ml</b>为饮酒驾驶（行政处罚），<b>≥80mg/100ml</b>为醉酒驾驶（刑事追责）。能否适用缓刑常以醉酒程度为参考（合肥约180mg/100ml为重要参考线），有事故或前科会更严。</p>"}
 ];
 var TYPE=["婚约财产·彩礼","保证担保","融资租赁·名租实贷","刑事·危险驾驶"];
 var REG=["安徽","北京","上海","浙江","广东","福建"];
@@ -155,24 +166,32 @@ function matches(c){
   if(rg&&c.reg!==rg)return false;
   if(id&&c.id.toLowerCase().indexOf(id)<0)return false;
   if(kw){
-    var hay=(c.kw+' '+c.gist.replace(/[<b>\s]/g,'')).toLowerCase();
+    var hay=(c.kw+' '+c.gist.replace(/<[^>]+>/g,'')+' '+(c.full||'').replace(/<[^>]+>/g,'')).toLowerCase();
     if(hay.indexOf(kw)<0)return false;
   }
   return true;
 }
 function render(){
   var list=CASES.filter(matches);
-  var el=document.getElementById('list');
   document.getElementById('cnt').innerHTML='共 <b>'+list.length+'</b> 条真实判例';
   document.getElementById('empty').style.display=list.length?'none':'block';
-  el.innerHTML=list.map(function(c){
+  document.getElementById('list').innerHTML=list.map(function(c){
     return '<div class="ccard">'+
       '<div class="cmeta"><span class="ctag">'+c.type+'</span><span class="creg">'+c.reg+'</span><span class="cyr">'+c.yr+' 年</span><span class="cid">'+c.id+'</span></div>'+
       '<div class="ctitle">'+c.t+'</div>'+
       '<div class="cgist">'+c.gist+'</div>'+
       '<div class="cfoot"><span class="court">法院：<b>'+c.court+'</b></span><a class="ckey" href="'+c.art+'">看『'+c.artn+'』→</a></div>'+
+      '<button class="cfull-btn" onclick="toggleFull(this)">📖 展开判例全文 ▾</button>'+
+      '<div class="cfull" style="display:none">'+c.full+'</div>'+
       '</div>';
   }).join('');
+}
+function toggleFull(btn){
+  var d=btn.nextElementSibling;
+  var open=d.style.display==='block';
+  d.style.display=open?'none':'block';
+  btn.innerHTML=open?'📖 展开判例全文 ▾':'📕 收起全文 ▴';
+  if(!open){setTimeout(function(){d.scrollIntoView({block:'nearest',behavior:'smooth'})},60)}
 }
 function doSearch(){render()}
 function doReset(){['fType','fReg','fId','fKw'].forEach(function(i){document.getElementById(i).value='';});render()}
