@@ -111,7 +111,8 @@ tbody tr:nth-child(even) td{background:#f8fafd}
 .crumb span,.breadcrumb span{color:var(--navy)}
 .brand{font-size:14px;opacity:.92}
 .lede{font-size:15.5px;opacity:.95;padding-bottom:14px}
-.pageh1{font-size:22px;color:var(--navy);margin:16px 0 2px;line-height:1.3}
+.pageh1{font-size:22px;color:var(--navy);margin:16px auto 2px;line-height:1.3;max-width:880px;padding:0 18px}
+.breadcrumb,.lede{max-width:880px;margin-left:auto;margin-right:auto;padding-left:18px;padding-right:18px}
 
 /* ===== 底部 CTA ===== */
 .cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1e47,#1643a8,#1d5fd0);color:#fff;border-radius:20px;padding:30px 26px;margin:34px auto;width:100%;text-align:center;box-shadow:0 18px 44px -16px rgba(13,36,82,.4)}
@@ -136,6 +137,13 @@ tbody tr:nth-child(even) td{background:#f8fafd}
 .btn{display:inline-block;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:14.5px;font-weight:600;box-shadow:var(--shadow-sm);transition:.2s}
 .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 
+/* ===== 吸底咨询栏（与首页统一） ===== */
+body{padding-bottom:70px}
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,25,60,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 -4px 18px rgba(0,0,0,.22)}
+.fixbar a{flex:1;text-align:center;padding:12px 4px;border-radius:11px;font-size:15px;font-weight:700;text-decoration:none;line-height:1.15}
+.fixbar .fb-call{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.fixbar .fb-msg{background:linear-gradient(135deg,#f0ca54,#ffe09c);color:#3a2c05}
+
 /* ===== 页脚 ===== */
 .footer{text-align:center;color:var(--sub);font-size:12px;padding:26px 16px;border-top:1px solid var(--line);margin-top:26px;background:rgba(255,255,255,.7)}
 
@@ -149,6 +157,11 @@ tbody tr:nth-child(even) td{background:#f8fafd}
   .cta{padding:26px 18px}.cta .phone{font-size:23px}
   .cats{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:11px}
   .nav a{margin-left:12px;font-size:13px}
+  .pageh1,.breadcrumb,.lede{padding-left:15px;padding-right:15px}
+  .dl,.tool{padding:16px}
+  .fixbar{padding:9px 12px calc(9px + env(safe-area-inset-bottom))}
+  .fixbar a{font-size:14px;padding:11px 4px}
+  .footer{padding:20px 14px}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"常用法律文书Word模板下载","url":"https://gy00007.github.io/gs-wq/downloads.html","description":"免费下载10套常用法律文书Word模板：借条、民事起诉状、答辩状、劳动仲裁申请书、授权委托书等，可直接编辑填写。","mainEntity":{"@type":"ItemList","name":"法律文书模板","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"name":"民事起诉状模板"},{"@type":"ListItem","position":2,"name":"答辩状模板"},{"@type":"ListItem","position":3,"name":"劳动仲裁申请书模板"},{"@type":"ListItem","position":4,"name":"授权委托书模板"},{"@type":"ListItem","position":5,"name":"借条模板"},{"@type":"ListItem","position":6,"name":"工伤认定申请书模板"},{"@type":"ListItem","position":7,"name":"证据清单模板"},{"@type":"ListItem","position":8,"name":"协议书模板"},{"@type":"ListItem","position":9,"name":"离婚起诉状模板"},{"@type":"ListItem","position":10,"name":"执行申请书模板"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://gy00007.github.io/gs-wq/"},{"@type":"ListItem","position":2,"name":"文书模板下载","item":"https://gy00007.github.io/gs-wq/downloads.html"}]}]}</script>
@@ -189,5 +202,10 @@ tbody tr:nth-child(even) td{background:#f8fafd}
 
 </div>
 <div class="footer">© 合肥工伤维权 | 文书模板为通用参考，具体个案以专业律师意见为准</div>
+
+<div class="fixbar">
+  <a class="fb-call" href="tel:15209861944">📞 电话咨询</a>
+  <a class="fb-msg" href="zaixian.html">📝 在线留言咨询</a>
+</div>
 </body>
 </html>
