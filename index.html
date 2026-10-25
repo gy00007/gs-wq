@@ -184,6 +184,12 @@ body{padding-bottom:70px}
   .cat span{display:none}
   .cat b{font-size:12px;margin:3px 0 0}
   .nav a{margin-left:12px;font-size:13px}
+  .section-title{margin:20px 0 9px}
+  .flow{gap:8px}
+  .f-step{padding:10px 11px}
+  .fixbar{padding:9px 12px calc(9px + env(safe-area-inset-bottom))}
+  .fixbar a{font-size:14px;padding:11px 4px}
+  .footer{padding:20px 14px}
 }
 
 /* ===== 服务流程 / 常见问题（新增） ===== */
@@ -337,7 +343,7 @@ a.f-step:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   </div>
 
   <h2 class="section-title">📖 科普文章</h2>
-  <div class="art-search"><input type="text" id="artSearch" placeholder="🔍 搜文章：工伤 / 离婚 / 借条 / 辞退…" oninput="artFilter"><div class="art-result" id="artResult"></div></div>
+  <div class="art-search"><input type="text" id="artSearch" placeholder="🔍 搜文章：工伤 / 离婚 / 借条 / 辞退…" oninput="artFilter()"><div class="art-result" id="artResult"></div></div>
   <div class="posts">
     <a class="post" href="articles/gs-shoushang-xianshi.html">
       <span class="c">工伤保险</span>
