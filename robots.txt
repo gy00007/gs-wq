@@ -29,4 +29,22 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+# 国内搜索引擎（国内AI模型语料底座）：百度/搜狗/360/头条/神马
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: ToutiaoSpider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
 Sitemap: https://gy00007.github.io/gs-wq/sitemap.xml
+
+Sitemap: http://jinsong-law.cn/sitemap.xml
