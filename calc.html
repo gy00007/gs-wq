@@ -183,7 +183,7 @@ function calcGs(){
   if(!w){document.getElementById('gsOut').innerHTML='<div class="note" style="color:#c24137">⚠️ 请填本人月工资</div>';return;}
   var SP=7999; // 安徽社平工资(元/月) 2026口径
   var MONE={1:27,2:25,3:23,4:21,5:18,6:16,7:13,8:11,9:9,10:7};
-  var MED={5:10,6:8,7:10,8:8,9:6,10:4};
+  var MED={5:24,6:18,7:10,8:8,9:6,10:4};
   var EMP={5:40,6:34,7:20,8:15,9:10,10:5};
   var wCap=Math.min(Math.max(w,0.6*SP),3*SP);
   var rows=[];
@@ -195,7 +195,7 @@ function calcGs(){
   var total=0;rows.forEach(function(r){total+=parseFloat(r[1].replace(/[^0-9]/g,''));});
   var h=fmtRows(rows);
   h+='<div class="card"><div class="rr total"><span class="k">合计（不含医疗费）</span><span class="v">'+money(total)+'</span></div></div>';
-  h+='<div class="note">说明：本人工资＝受伤前12个月平均缴费工资，低于社平60%按60%算、高于300%按300%算。解除劳动关系的，5-6级才有一次性医疗/就业补助（月数为安徽常见口径）。医疗费按医保/工伤基金按规定报销，没算进合计。</div>';
+  h+='<div class="note">说明：①本人工资＝受伤前12个月平均缴费工资，低于社平60%按60%算、高于300%按300%算。②一次性伤残补助金评残即发、按本人工资。③解除/终止劳动关系时，5-10级还可拿两笔：一次性工伤医疗补助金（工伤基金付）＋一次性伤残就业补助金（单位付），均按安徽上年度职工月平均工资×伤残对应月数（医疗5级24/6级18/7级10/8级8/9级6/10级4；就业5级40/6级34/7级20/8级15/9级10/10级5）。④医疗费按医保/工伤基金按规定报销，没算进合计。</div>';
   document.getElementById('gsOut').innerHTML=h;
   document.getElementById('gsOut').scrollIntoView({behavior:'smooth'});
 }
