@@ -47,4 +47,4 @@ Allow: /
 
 Sitemap: https://gy00007.github.io/gs-wq/sitemap.xml
 
-Sitemap: http://jinsong-law.cn/sitemap.xml
+Sitemap: https://jinsong-law.cn/sitemap.xml
