@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>咨询留言后台 | 金讼法律</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--navy:#0d2452;--blue:#1d4ed8;--gold:#c9a227;--ink:#17213a;--sub:#5b6472;--line:#e4e9f1;
+--shadow:0 14px 34px -14px rgba(13,36,82,.22);--shadow-sm:0 5px 16px -8px rgba(13,36,82,.12);--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);line-height:1.7;background:radial-gradient(1000px 400px at 12% -5%,#e6edfd,transparent 45%),#f1f4f9}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+.hdr{background:var(--navy);color:#fff;padding:13px 0;box-shadow:0 2px 14px rgba(13,36,82,.25)}
+.hdr .title{font-weight:800;font-size:17px}
+.hdr .title span{color:#f0c95c}
+.hdr .back{float:right;color:rgba(255,255,255,.9);text-decoration:none;font-size:14px;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:8px}
+.hdr .back:hover{color:#f0c95c}
+/* 登录门 */
+.gate{max-width:380px;margin:80px auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.gate h1{font-size:20px;color:var(--navy);margin-bottom:6px;text-align:center}
+.gate p{font-size:13px;color:var(--sub);text-align:center;margin-bottom:18px}
+.gate input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font-size:15px}
+.gate input:focus{outline:none;border-color:var(--blue)}
+.gate .btn{width:100%;margin-top:14px;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.msg{font-size:13px;color:#dc2626;text-align:center;margin-top:10px;min-height:18px}
+/* 主面板 */
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:20px 0}
+.top .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px;box-shadow:var(--shadow-sm);font-size:14px}
+.top .stat b{color:var(--navy);font-size:18px}
+.top .stat.new b{color:#dc2626}
+.top button{padding:9px 16px;border:none;border-radius:9px;cursor:pointer;font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.top button.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff;border:none}
+.msg-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow-sm);transition:.2s}
+.msg-item.unread{border-color:#f0c95c;background:#fffdf4}
+.msg-item .mhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.msg-item .who{font-weight:700;color:var(--navy);font-size:16px}
+.msg-item .phone{color:var(--blue);font-size:15px;font-weight:600}
+.msg-item .time{color:var(--sub);font-size:12.5px}
+.msg-item .tag{background:#dc2626;color:#fff;font-size:11px;padding:2px 8px;border-radius:6px;font-weight:700}
+.msg-item .content{margin-top:10px;color:#2a3350;font-size:14.5px;white-space:pre-wrap;word-break:break-word;background:#f8fafc;border-radius:9px;padding:11px 13px;border-left:3px solid var(--navy)}
+.msg-item .ops{margin-top:12px;display:flex;gap:10px}
+.msg-item .ops button{padding:7px 14px;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600}
+.msg-item .ops .read{background:#eef4ff;color:var(--blue)}
+.msg-item .ops .del{background:#fee2e2;color:#b91c1c}
+.msg-item .ops .del:hover{background:#fecaca}
+.msg-item .ops .call{background:#f0fdf4;color:#15803d;text-decoration:none;display:inline-block;padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600}
+.empty{text-align:center;color:var(--sub);padding:50px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.footer{text-align:center;color:var(--sub);font-size:12px;padding:20px;margin-top:20px}
+.hidden{display:none}
+#toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#16a34a;color:#fff;padding:11px 24px;border-radius:10px;font-size:14px;box-shadow:var(--shadow);z-index:99}
+.del-confirm{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:13.5px;color:#7c2d12;background:#fff7ed;border-color:#fed7aa}
+.del-confirm button{padding:6px 12px;border:none;border-radius:7px;cursor:pointer;font-size:12.5px;margin-left:8px}
+.del-confirm .yes{background:#b91c1c;color:#fff}.del-confirm .no{background:#e5e7eb;color:#374151}
+@media(max-width:600px){.msg-item .who{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="wrap">
+  <span class="title">咨询留言<span>后台</span></span>
+  <a class="back" href="index.html">← 返回网站</a>
+</div></div>
+
+<!-- 登录门 -->
+<div class="gate hidden" id="gate">
+  <h1>🔒 后台密码</h1>
+  <p>仅律师本人可查看留言，请输入访问密码</p>
+  <input type="password" id="pwd" placeholder="请输入密码" autocomplete="current-password">
+  <button class="btn" onclick="doLogin">进入后台</button>
+  <div class="msg" id="gateMsg"></div>
+</div>
+
+<!-- 主面板 -->
+<div class="wrap hidden" id="panel">
+  <div class="top">
+    <div class="stat">全部 <b id="cAll">0</b> 条</div>
+    <div class="stat new">未读 <b id="cNew">0</b> 条</div>
+    <div style="display:flex;gap:8px">
+      <button class="primary" onclick="loadMsgs">🔄 刷新</button>
+      <button onclick="logout">退出</button>
+      <button onclick="window.location='index.html'">返回网站</button>
+    </div>
+  </div>
+  <div id="list"></div>
+</div>
+
+<div class="footer">© 合肥工伤维权 · 咨询留言后台 · 仅律师本人使用</div>
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/aipexbase-js/dist/aipexbase.umd.min.js"></script>
+<script>
+var client = null;
+var ADMIN_PWD = "Ww4#nsysDsepm1jA";  // ← 访问密码已加固，请勿外传；前端鉴权仅为缓解，建议后台仅本人使用
+var editingDel = null;
+
+function toast(m){ var t=document.getElementById('toast'); t.textContent=m; t.style.display='block'; setTimeout(function{t.style.display='none';},3000); }
+
+function ensureClient{
+  if(!client){ client = aipexbase.createClient({ baseUrl: "https://baas.kuafuai.net/baas-api", apiKey: "baas_uqkF87OK" }); }
+}
+
+function gate(is){ document.getElementById('gate').classList.toggle('hidden',!is); document.getElementById('panel').classList.toggle('hidden',is); }
+
+function doLogin{
+  var p=document.getElementById('pwd').value;
+  if(p===ADMIN_PWD){ sessionStorage.setItem('zxadmin','1'); gate(false); loadMsgs; document.getElementById('gateMsg').textContent=''; }
+  else{ document.getElementById('gateMsg').textContent='密码错误，请重试'; }
+}
+
+function logout{ sessionStorage.removeItem('zxadmin'); gate(true); document.getElementById('pwd').value=''; }
+
+function mEsc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function loadMsgs{
+  ensureClient;
+  try{
+    var res=await client.db.from('zuixun').list;
+    var arr=(res&&res.data)||(Array.isArray(res)?res:[]);
+    // 按 id 倒序（新的在前）
+    arr.sort(function(a,b){ return (b.id||0)-(a.id||0); });
+    var cNew=0, html='';
+    arr.forEach(function(m){
+      if(m.is_read!=='1') cNew++;
+      html+='<div class="msg-item'+(m.is_read==='1'?'':' unread')+'">'
+        +'<div class="mhead"><span class="who">'+mEsc(m.name)+'</span>'
+        +(m.is_read==='1'?'':'<span class="tag">未读</span>')
+        +'<span class="phone">📞 '+mEsc(m.phone)+'</span>'
+        +'<span class="time">'+mEsc(m.time)+'</span></div>'
+        +'<div class="content">'+mEsc(m.content)+'</div>'
+        +'<div class="ops">'
+        +'<a class="call" href="tel:'+mEsc(m.phone)+'">📲 拨打</a>'
+        +(m.is_read==='1'?'':'<button class="read" onclick="markRead('+m.id+')">✓ 标为已读</button>')
+        +'<button class="del" onclick="askDel('+m.id+')">删除</button>'
+        +'</div></div>';
+    });
+    document.getElementById('list').innerHTML = html || '<div class="empty">暂无留言</div>';
+    document.getElementById('cAll').textContent=arr.length;
+    document.getElementById('cNew').textContent=cNew;
+  }catch(e){ document.getElementById('list').innerHTML='<div class="empty">加载失败：'+mEsc(e.message||'网络错误')+'</div>'; console.error(e); }
+}
+
+async function markRead(id){
+  ensureClient;
+  try{ await client.db.from('zuixun').update.set({is_read:'1'}).eq('id',id); loadMsgs; }
+  catch(e){ toast('操作失败'); console.error(e); }
+}
+
+function askDel(id){
+  var c=confirm('确定删除这条留言？删除后不可恢复。');
+  if(!c) return;
+  delMsg(id);
+}
+
+async function delMsg(id){
+  ensureClient;
+  try{ await client.db.from('zuixun').delete.eq('id',id); toast('已删除'); loadMsgs; }
+  catch(e){ toast('删除失败'); console.error(e); }
+}
+
+// 初始化
+ensureClient;
+if(sessionStorage.getItem('zxadmin')==='1'){ gate(false); loadMsgs; }
+else{ gate(true); }
+</script>
+</body>
+</html>
