@@ -1,50 +1,55 @@
+# robots.txt - 金讼法律 (https://www.jinsong-law.cn)
+# 策略：放行所有爬虫（含 AI 生成式/检索增强爬虫），便于 SEO 收录与 AI 搜索引用
+
 User-agent: *
 Allow: /
 
-# AI 生成式爬虫（允许抓取，便于被 AI 引用）
+# ===== AI 生成式 / 检索增强爬虫（显式放行）=====
 User-agent: GPTBot
 Allow: /
-
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
 User-agent: ClaudeBot
 Allow: /
-
+User-agent: anthropic-ai
+Allow: /
 User-agent: PerplexityBot
 Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Googlebot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: CCBot
+Allow: /
 
+# ===== 搜索引擎爬虫（国内 AI 语料底座）=====
+User-agent: Baiduspider
+Allow: /
+User-agent: Sogou web spider
+Allow: /
+User-agent: 360Spider
+Allow: /
+User-agent: ToutiaoSpider
+Allow: /
+User-agent: YisouSpider
+Allow: /
 User-agent: Bingbot
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: Diffbot
-Allow: /
-
-# 国内搜索引擎（国内AI模型语料底座）：百度/搜狗/360/头条/神马
-User-agent: Baiduspider
-Allow: /
-
-User-agent: Sogou web spider
-Allow: /
-
-User-agent: 360Spider
-Allow: /
-
-User-agent: ToutiaoSpider
-Allow: /
-
-User-agent: YisouSpider
-Allow: /
-
-Sitemap: https://gy00007.github.io/gs-wq/sitemap.xml
-
-Sitemap: https://jinsong-law.cn/sitemap.xml
+Sitemap: https://www.jinsong-law.cn/sitemap.xml
